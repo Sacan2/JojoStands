@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 
-@RestController
+    @RestController
     @RequestMapping("/api/stands")
     public class DatabaseController {
 
@@ -18,8 +18,8 @@ import java.util.List;
         private EntityManager entityManager;
         // GET: Alle Stands abrufen
         @GetMapping
-        public List<Stand> getAllStands() {
-            return entityManager.createQuery("SELECT s FROM Stand s", Stand.class).getResultList();
+        public List<Stand> getAllStands(String name) {
+            return entityManager.createQuery("SELECT s FROM Stand s WHERE s.standname LIKE :standname", Stand.class).setParameter("standname",name).getResultList();
         }
-}
+    }
 
