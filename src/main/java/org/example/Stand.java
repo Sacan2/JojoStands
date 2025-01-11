@@ -13,8 +13,14 @@ public class Stand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "standname")
     private String standname;
+
+    @Column(name = "ability")
     private String ability;
+
+    @Column(name = "range")
     private int range;
 
 }

@@ -23,11 +23,20 @@ import java.util.List;
         public List<Stand> getAllStands(String name) {
             return entityManager.createQuery("SELECT s FROM Stand s WHERE s.standname LIKE :standname", Stand.class).setParameter("standname",name).getResultList();
         }
+        
+        @PostMapping("/addStand")
+        public String addStand(
+                @RequestParam String standname,
+                @RequestParam String ability,
+                @RequestParam int range) {
 
-        @PostMapping
-        public ResponseEntity<Stand> createStand(@RequestBody Stand stand) {
-            entityManager.persist(stand);
-            return ResponseEntity.status(HttpStatus.CREATED).body(stand);
+            Stand stand = new Stand();
+            stand.setStandname(standname);
+            stand.setAbility(ability);
+            stand.setRange(range);
+
+
+            return "Details got Saved to Database";
         }
 
 
