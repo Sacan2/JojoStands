@@ -21,7 +21,7 @@ import java.util.List;
         // GET: Alle Stands abrufen
         @GetMapping
         public List<Stand> getAllStands(String name) {
-            return entityManager.createQuery("SELECT s FROM Stand s WHERE s.standname LIKE :standname", Stand.class).setParameter("standname",name).getResultList();
+            return entityManager.createQuery("SELECT s FROM Stand s WHERE s.standname LIKE :standname", Stand.class).setParameter("standname","%" + name + "%").getResultList();
         }
         
         @PostMapping("/addStand")
