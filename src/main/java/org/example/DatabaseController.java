@@ -32,8 +32,7 @@ import java.util.List;
             stand.setAbility(ability);
             stand.setRange(range);
 
-            entityManager.persist(stand);
-            return "Details got Saved to Database";
+            return standname;
         }
 
 
