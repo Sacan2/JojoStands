@@ -3,6 +3,8 @@ package org.example;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,20 +22,11 @@ import java.util.List;
             return entityManager.createQuery("SELECT s FROM Stand s WHERE s.standname LIKE :standname",
                     Stand.class).setParameter("standname","%" + name + "%").getResultList();
         }
-        
-        @PostMapping("/addStand")
-        public String addStand(
-                @RequestParam String standname,
-                @RequestParam String ability,
-                @RequestParam int range) {
 
-            Stand stand = new Stand();
-            stand.setStandname(standname);
-            stand.setAbility(ability);
-            stand.setRange(range);
+        @Autowired
+        private StandRepository standRepository;
 
-            return standname;
-        }
+
 
 
     }
