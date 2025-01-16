@@ -11,7 +11,6 @@ import lombok.Setter;
 public class Stand {
     // Getter und Setter
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "standname")
