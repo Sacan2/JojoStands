@@ -1,5 +1,7 @@
 package org.example;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,6 +11,10 @@ import org.springframework.web.bind.annotation.*;
     @RequestMapping("/api/stands")
     public class DatabaseController {
 
+
+
+        @PersistenceContext
+        private EntityManager entityManager;
 
         @Autowired
         private StandRepository standRepository;
