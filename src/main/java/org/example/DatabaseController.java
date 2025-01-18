@@ -25,6 +25,8 @@ import java.util.List;
         private StandRepository standRepository;
         @PostMapping("/addStand")
         public void addStand(@RequestBody Stand stand){
+
+
             standRepository.save(stand);
         }
 
