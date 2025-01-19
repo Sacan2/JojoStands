@@ -29,8 +29,5 @@ import java.util.List;
 
             standRepository.save(stand);
         }
-
-
-
     }
 
