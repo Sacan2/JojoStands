@@ -12,8 +12,6 @@ import java.util.List;
     @RequestMapping("/api/stands")
     public class DatabaseController {
 
-
-
         @PersistenceContext
         private EntityManager entityManager;
         @GetMapping
@@ -21,13 +19,19 @@ import java.util.List;
             return entityManager.createQuery("SELECT s FROM Stand s WHERE s.standname LIKE :standname",
                     Stand.class).setParameter("standname","%" + name + "%").getResultList();
         }
+
         @Autowired
         private StandRepository standRepository;
         @PostMapping("/addStand")
-        public void addStand(@RequestBody Stand stand){
+        public void addStand(@RequestParam int id, String name, String ability, int range){
+            Stand stand = new Stand();
 
-
+            stand.setId(id);
+            stand.setStandname(name);
+            stand.setAbility(ability);
+            stand.setRange(range);
             standRepository.save(stand);
         }
+
     }
 
