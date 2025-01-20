@@ -33,5 +33,14 @@ import java.util.List;
             standRepository.save(stand);
         }
 
+
+        @PatchMapping
+        public void updateRow(@RequestParam int id, String standname){
+            Stand stand = standRepository.findById(id);
+            stand.setStandname(standname);
+            standRepository.save(stand);
+
+        }
+
     }
 
