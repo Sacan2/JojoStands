@@ -42,5 +42,12 @@ import java.util.List;
 
         }
 
+        @DeleteMapping
+        public void deleteRow(@RequestParam int id){
+            Stand stand = standRepository.findById(id);
+            standRepository.delete(stand);
+
+        }
+
     }
 
