@@ -47,7 +47,10 @@ import java.util.List;
             Stand stand = standRepository.findById(id);
             standRepository.delete(stand);
 
+
         }
+
+
 
     }
 
