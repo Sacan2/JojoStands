@@ -46,11 +46,6 @@ import java.util.List;
         public void deleteRow(@RequestParam int id){
             Stand stand = standRepository.findById(id);
             standRepository.delete(stand);
-
-
         }
-
-
-
     }
 
